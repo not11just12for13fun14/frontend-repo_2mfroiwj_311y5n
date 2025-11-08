@@ -1,26 +1,29 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Features from './components/Features'
+import Curriculum from './components/Curriculum'
+import CTA from './components/CTA'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen bg-[#0A0A14] text-white">
+      {/* Background dynamic gradients + parallax layers */}
+      <div className="pointer-events-none fixed inset-0 opacity-60">
+        <div className="absolute -top-40 left-1/2 h-[50vh] w-[90vw] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,_rgba(139,92,246,0.25),transparent)]" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[60vh] w-[60vw] rounded-[50%] bg-[radial-gradient(closest-side,_rgba(34,211,238,0.2),transparent)]" />
       </div>
+
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <Curriculum />
+        <CTA />
+      </main>
+
+      <footer className="relative z-10 border-t border-white/10 py-10 text-center text-sm text-white/60">
+        © {new Date().getFullYear()} Cybernova Security — Belajar aman, bertumbuh pasti.
+      </footer>
     </div>
   )
 }
